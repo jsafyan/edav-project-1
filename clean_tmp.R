@@ -73,12 +73,12 @@ plot_kmeans = function(df, clusters, runs, standardize=F) {
   #collect data
   tmp_d = data.frame(matrix(ncol=0, nrow=nrow(df)))
   tmp_d$cluster = as.factor(tmp_k$cluster)
-  tmp_d$Students = as.numeric(tmp_f$scores[, 1])
-  tmp_d$Number.of.Tools.Used = as.numeric(tmp_f$scores[, 2])
+  tmp_d$Factor1 = as.numeric(tmp_f$scores[, 1])
+  tmp_d$Factor2 = as.numeric(tmp_f$scores[, 2])
   tmp_d$label = rownames(df)
   
   #plot
-  g = ggplot(tmp_d, aes(Students, Number.of.Tools.Used, color = cluster)) + geom_point() + 
+  g = ggplot(tmp_d, aes(Factor1, Factor2, color = cluster)) + geom_point() + 
     scale_colour_manual(values=c("purple", "green","orange", "yellow", "blue", "red")) +
     annotate("point", x = tmp_k$centers[, 2], y = tmp_k$centers[, 1], size = tmp_k$size/2, colour = c("purple", "green","orange", "yellow", "blue", "red"))  
     return(g)
