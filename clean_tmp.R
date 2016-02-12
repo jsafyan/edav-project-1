@@ -85,7 +85,6 @@ plot_kmeans = function(df, clusters, runs, standardize=F) {
 }
 
 plot_kmeans(mydata, 6)
-ggsave("cluster_GDP1.png")
+ggsave("toolsCorrelation.png")
 
 
-write.csv(mydata, "survey_new.csv",row.names = FALSE)
